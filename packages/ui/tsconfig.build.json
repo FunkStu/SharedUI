@@ -12,5 +12,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": ["src"]
+  "include": [
+    "src/index.ts",
+    "src/data/index.ts",
+    "src/charts/index.ts",
+    "src/theme/index.ts",
+    "src/workflow/index.ts",
+    "src/ai/index.ts",
+    "src/primitives/index.ts",
+    "src/lib/utils.ts",
+    "src/surface/index.ts",
+    "src/composition/index.ts",
+    "src/layout/index.ts"
+  ]
 }
