@@ -10,7 +10,8 @@
     "sync:fee-modeler": "node tools/sync-shared-ui.mjs --target Fee-Modeler",
     "sync:fee-modeler:check": "node tools/sync-shared-ui.mjs --target Fee-Modeler --check",
     "sync:all": "node tools/sync-shared-ui.mjs --all",
-    "sync:all:check": "node tools/sync-shared-ui.mjs --all --check"
+    "sync:all:check": "node tools/sync-shared-ui.mjs --all --check",
+    "publish:audere-ui": "npm publish -C packages/ui"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
