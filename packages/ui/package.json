@@ -1,5 +1,5 @@
 {
-  "name": "@audere/ui",
+  "name": "@audere-apps/ui",
   "version": "0.3.0",
   "description": "Shared Audere UI components and design primitives",
   "type": "module",

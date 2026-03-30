@@ -4,7 +4,7 @@ import {
   SharedPieChart,
   SharedBarChart,
   CashflowChart,
-} from "@audere/ui";
+} from "@audere-apps/ui";
 
 // Sample data for Finsight dashboard charts
 const referralSourceData = [

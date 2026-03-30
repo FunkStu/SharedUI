@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, DataTable, Badge } from "@audere/ui";
+import { Button, DataTable, Badge } from "@audere-apps/ui";
 import { Plus, Upload, Save, Pencil, Trash2 } from "lucide-react";
 
 const TASKS = [

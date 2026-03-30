@@ -14,7 +14,7 @@ export default defineConfig({
     alias: {
       // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
-      '@audere/ui': path.resolve(__dirname, './packages/ui/src'),
+      '@audere-apps/ui': path.resolve(__dirname, './packages/ui/src'),
     },
   },
 

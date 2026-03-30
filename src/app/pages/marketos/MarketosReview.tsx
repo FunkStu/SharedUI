@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, SharedAreaChart, SharedBarChart, MetricTile } from "@audere/ui";
+import { Button, SharedAreaChart, SharedBarChart, MetricTile } from "@audere-apps/ui";
 import { RefreshCw, Save } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
 

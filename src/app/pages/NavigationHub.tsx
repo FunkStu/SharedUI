@@ -1,4 +1,4 @@
-import { AppSwitcher, WorkspaceSelector, TopNavigation, SidebarNavigation } from "@audere/ui";
+import { AppSwitcher, WorkspaceSelector, TopNavigation, SidebarNavigation } from "@audere-apps/ui";
 import { NotificationPanel } from "../components/platform/NotificationPanel";
 import { PlatformSidebarMode } from "../components/platform/PlatformSidebarMode";
 import { AppSidebarMode } from "../components/platform/AppSidebarMode";

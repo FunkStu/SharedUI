@@ -1,1 +1,1 @@
-export { Button, buttonVariants } from "@audere/ui/primitives";
+export { Button, buttonVariants } from "@audere-apps/ui/primitives";

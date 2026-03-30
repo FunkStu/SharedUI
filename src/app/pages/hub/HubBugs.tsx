@@ -1,4 +1,4 @@
-import { Button, DataTable } from "@audere/ui";
+import { Button, DataTable } from "@audere-apps/ui";
 
 type BugRow = {
   id: string;

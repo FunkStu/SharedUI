@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, DataTable } from "@audere/ui";
+import { Button, DataTable } from "@audere-apps/ui";
 import { GripVertical, Pencil, Trash2, ClipboardList } from "lucide-react";
 
 type OneToManyRow = {

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { AppLayout, TopNavigation } from "@audere/ui";
+import { AppLayout, TopNavigation } from "@audere-apps/ui";
 import { DocsSidebar } from "../components/docs/DocsSidebar";
 import { DocsRouteSwitcher } from "../components/docs/DocsRouteSwitcher";
 

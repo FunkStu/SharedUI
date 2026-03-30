@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, MetricTile, DataTable, Badge } from "@audere/ui";
+import { Button, MetricTile, DataTable, Badge } from "@audere-apps/ui";
 import { Download, Save, Upload, Plus, Star } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
 import { cn } from "../../utils/cn";

@@ -5,7 +5,7 @@
  * Tailwind utilities by the host app (`bg-background`, `text-foreground`, `border-border`,
  * `bg-card`, `text-muted-foreground`, `bg-primary`, `bg-sidebar`, …).
  *
- * @audere/ui compound components use those utilities only — not raw hex or `slate-*`,
+ * @audere-apps/ui compound components use those utilities only — not raw hex or `slate-*`,
  * except intentional semantic accents (e.g. status borders) documented on the component.
  *
  * Shared UI app: `src/styles/theme.css`. Other apps: align variable names with shadcn-style tokens.

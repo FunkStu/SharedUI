@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router";
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 import { AppSwitcher } from "../platform/AppSwitcher";
 import { PLATFORM_APPS } from "../../config/apps";
 import {

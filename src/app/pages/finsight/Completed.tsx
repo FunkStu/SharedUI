@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, MetricTile, Badge } from "@audere/ui";
+import { Button, MetricTile, Badge } from "@audere-apps/ui";
 import { FinsightBanner } from "../../components/finsight/FinsightBanner";
 import { Download } from "lucide-react";
 

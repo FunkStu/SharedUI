@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Badge } from "@audere/ui";
+import { Button, Badge } from "@audere-apps/ui";
 import { FileText, User, Archive, Mail } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
 import { cn } from "../../utils/cn";

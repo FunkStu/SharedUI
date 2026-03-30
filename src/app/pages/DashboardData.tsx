@@ -1,4 +1,4 @@
-import { Badge, Button, Input, MetricTile, DataTable, InsightCard, SharedPieChart, SharedBarChart, SharedAreaChart, CashflowChart } from "@audere/ui";
+import { Badge, Button, Input, MetricTile, DataTable, InsightCard, SharedPieChart, SharedBarChart, SharedAreaChart, CashflowChart } from "@audere-apps/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/Card";
 import { TrendingUp, TrendingDown, AlertCircle, Clock, Filter, Download, Plus, ArrowRight, Target } from "lucide-react";
 import { 
@@ -168,7 +168,7 @@ export function DashboardData() {
         <div>
           <h2 className="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Shared chart components</h2>
           <p className="mt-2 text-sm text-slate-500">
-            Reusable <code className="rounded bg-slate-100 px-1 text-xs">@audere/ui</code> charts: pie, bar, area, and cashflow. Used in Finsight and any dashboard.
+            Reusable <code className="rounded bg-slate-100 px-1 text-xs">@audere-apps/ui</code> charts: pie, bar, area, and cashflow. Used in Finsight and any dashboard.
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

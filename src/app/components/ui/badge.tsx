@@ -1,1 +1,1 @@
-export { Badge, badgeVariants } from "@audere/ui/primitives";
+export { Badge, badgeVariants } from "@audere-apps/ui/primitives";

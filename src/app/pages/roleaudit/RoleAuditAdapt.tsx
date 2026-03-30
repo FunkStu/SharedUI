@@ -1,4 +1,4 @@
-import { Button, MetricTile } from "@audere/ui";
+import { Button, MetricTile } from "@audere-apps/ui";
 import { Card, CardContent } from "../../components/ui/card";
 
 const COLS = [

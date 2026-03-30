@@ -1,4 +1,4 @@
-import { AIChatPanel, Button, Input } from "@audere/ui";
+import { AIChatPanel, Button, Input } from "@audere-apps/ui";
 import { Send, ThumbsUp, ThumbsDown } from "lucide-react";
 
 const CONTEXT_UPDATES = [

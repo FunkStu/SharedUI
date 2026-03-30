@@ -1,0 +1,47 @@
+{
+  "targets": {
+    "Fee-Modeler": {
+      "repoPath": "../Fee-Modeler",
+      "mappings": [
+        {
+          "source": "packages/ui/src/layout/FeeModelerAppSidebar.tsx",
+          "destination": "src/components/preview-shell/FeeModelerAppSidebar.tsx"
+        },
+        {
+          "source": "packages/ui/src/layout/feeModelerSidebarTokens.ts",
+          "destination": "src/components/preview-shell/feeModelerSidebarTokens.ts"
+        },
+        {
+          "source": "packages/ui/src/surface/Surface.tsx",
+          "destination": "src/components/preview-shell/Surface.tsx"
+        },
+        {
+          "source": "packages/ui/src/composition/Section.tsx",
+          "destination": "src/components/preview-shell/Section.tsx"
+        },
+        {
+          "source": "packages/ui/src/composition/PageHeader.tsx",
+          "destination": "src/components/preview-shell/PageHeader.tsx"
+        },
+        {
+          "source": "packages/ui/src/composition/Toolbar.tsx",
+          "destination": "src/components/preview-shell/Toolbar.tsx"
+        },
+        {
+          "source": "packages/ui/src/data/MetricTile.tsx",
+          "destination": "src/components/preview-shell/MetricTile.tsx"
+        }
+      ],
+      "replacements": [
+        {
+          "find": "../lib/utils",
+          "replace": "@/lib/utils"
+        },
+        {
+          "find": "../surface/Surface",
+          "replace": "./Surface"
+        }
+      ]
+    }
+  }
+}

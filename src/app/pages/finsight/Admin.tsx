@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Badge, DataTable } from "@audere/ui";
+import { Button, Badge, DataTable } from "@audere-apps/ui";
 import { FinsightBanner } from "../../components/finsight/FinsightBanner";
 import { RefreshCw, Plus, Pencil, FolderOpen, Eye, Trash2 } from "lucide-react";
 

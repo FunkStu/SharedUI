@@ -1,7 +1,7 @@
 import { Card, CardContent } from "../components/ui/Card";
-import { Button } from "@audere/ui";
-import { Badge } from "@audere/ui";
-import { TaskCard, Checklist, ProgressTracker } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
+import { Badge } from "@audere-apps/ui";
+import { TaskCard, Checklist, ProgressTracker } from "@audere-apps/ui";
 import { CheckCircle2, Circle, MoreHorizontal, Clock, ArrowRight, User } from "lucide-react";
 
 export function Workflows() {

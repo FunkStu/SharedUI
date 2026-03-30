@@ -18,6 +18,7 @@ export type FeeModelerSidebarLinkProps = {
   to: string;
   className?: string;
   children?: ReactNode;
+  [key: string]: unknown;
 };
 
 export type FeeModelerAppSidebarProps = {
@@ -60,7 +61,7 @@ function ChevronRight({ open }: { open: boolean }) {
  */
 export function FeeModelerAppSidebar({
   pathname,
-  navigate,
+  navigate: _navigate,
   Link,
   branding,
   home,
@@ -113,50 +114,12 @@ export function FeeModelerAppSidebar({
 
           {visibleGroups.map((group) => {
             const isOpen = openGroupId === group.id;
-            const only = group.items.length === 1 ? group.items[0] : null;
-
-            // Single route per section (e.g. SETUP): use a real Link so navigation always works.
-            // Accordion + navigate(first) was easy to miss under overlapping main content (low z-index).
-            if (only) {
-              const isActive = pathname === only.path;
-              const OnlyIcon = only.icon;
-              return (
-                <div key={group.id} className="mt-1">
-                  <Link
-                    to={only.path}
-                    className={cn(
-                      t.sectionTrigger,
-                      "no-underline",
-                      isActive ? "bg-teal-600 text-white hover:bg-teal-600" : "",
-                    )}
-                  >
-                    <span className="flex min-w-0 flex-1 items-center gap-2">
-                      <OnlyIcon className={t.nestedIcon} />
-                      <span>{group.label}</span>
-                    </span>
-                  </Link>
-                </div>
-              );
-            }
-
             return (
               <div key={group.id} className="mt-1">
                 <button
                   type="button"
-                  onClick={() => {
-                    if (isOpen) {
-                      onOpenGroupChange(null);
-                      return;
-                    }
-                    const first = group.items[0];
-                    if (first) {
-                      if (pathname !== first.path) {
-                        navigate(first.path);
-                      }
-                      onOpenGroupChange(group.id);
-                    }
-                  }}
                   className={t.sectionTrigger}
+                  onClick={() => onOpenGroupChange(isOpen ? null : group.id)}
                 >
                   <span>{group.label}</span>
                   <ChevronRight open={isOpen} />

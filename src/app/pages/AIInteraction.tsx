@@ -1,7 +1,7 @@
 import { Card, CardContent } from "../components/ui/Card";
-import { Button } from "@audere/ui";
-import { Input } from "@audere/ui";
-import { AIActionCard, AIInsightPanel, AIChatPanel } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
+import { Input } from "@audere-apps/ui";
+import { AIActionCard, AIInsightPanel, AIChatPanel } from "@audere-apps/ui";
 import { Brain, Sparkles, Send, RefreshCw, ThumbsUp, ThumbsDown, TrendingUp, ArrowRight } from "lucide-react";
 
 export function AIInteraction() {

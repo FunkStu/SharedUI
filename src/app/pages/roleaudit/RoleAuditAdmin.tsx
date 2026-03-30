@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 import { Plus, Pencil, Trash2 } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
 import { cn } from "../../utils/cn";

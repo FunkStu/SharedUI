@@ -1,4 +1,4 @@
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },

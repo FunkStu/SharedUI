@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Badge } from "@audere/ui";
+import { Button, Badge } from "@audere-apps/ui";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { cn } from "../../utils/cn";
 

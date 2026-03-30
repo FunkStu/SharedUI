@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 import {
   FeeModelerAppSidebar,
   type FeeModelerNavGroup,
-} from "@audere/ui/layout";
+} from "@audere-apps/ui/layout";
 import { AppSwitcher } from "../platform/AppSwitcher";
 import {
   Home,

@@ -1,1 +1,1 @@
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "@audere/ui/primitives";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "@audere-apps/ui/primitives";

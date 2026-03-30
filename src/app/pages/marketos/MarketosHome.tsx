@@ -1,4 +1,4 @@
-import { Button, MetricTile, Badge } from "@audere/ui";
+import { Button, MetricTile, Badge } from "@audere-apps/ui";
 import { Send, Target, TrendingUp, HelpCircle, Calendar, Settings } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
 import { cn } from "../../utils/cn";

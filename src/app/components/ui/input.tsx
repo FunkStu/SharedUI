@@ -1,1 +1,1 @@
-export { Input } from "@audere/ui/primitives";
+export { Input } from "@audere-apps/ui/primitives";

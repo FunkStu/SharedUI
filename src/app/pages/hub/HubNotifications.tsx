@@ -1,4 +1,4 @@
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 
 const NOTIFICATIONS = [
   { id: "1", title: "CoPilot Rewriter", status: "Published", audience: "All users", app: "aidere" },

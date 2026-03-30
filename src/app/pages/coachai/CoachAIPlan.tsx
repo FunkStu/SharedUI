@@ -1,4 +1,4 @@
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 import { Plus, ChevronDown } from "lucide-react";
 
 const OUTCOMES = [

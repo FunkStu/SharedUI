@@ -6,7 +6,7 @@ import {
   MetricTile,
   Checklist,
   ProgressTracker,
-} from "@audere/ui";
+} from "@audere-apps/ui";
 import { Brain, LineChart, TrendingUp, TrendingDown } from "lucide-react";
 
 const CROSS_APP_DEMO_ITEMS: CrossAppNotificationItem[] = [

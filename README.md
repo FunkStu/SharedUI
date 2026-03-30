@@ -8,4 +8,4 @@ Run `npm i` to install dependencies.
 
 Run `npm run dev` to start the development server.
 
-The publishable library lives under `packages/ui` (`@audere/ui`).
+The publishable library lives under `packages/ui` (`@audere-apps/ui`).

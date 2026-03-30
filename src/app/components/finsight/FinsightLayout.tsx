@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router";
-import { Button, Input } from "@audere/ui";
+import { Button, Input } from "@audere-apps/ui";
 import { AppSwitcher } from "../platform/AppSwitcher";
 import { Home, TrendingUp, CheckCircle, Users, Settings, Shield, Bell, ChevronDown, ExternalLink, LogOut, ArrowLeft } from "lucide-react";
 import { cn } from "../../utils/cn";

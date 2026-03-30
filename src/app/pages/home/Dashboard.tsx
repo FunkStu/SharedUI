@@ -1,4 +1,4 @@
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 import { Calendar, Send, Target, FolderOpen, Wrench, Eye, Pencil, Share2, Trash2, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
 

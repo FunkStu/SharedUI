@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, DataTable, Badge } from "@audere/ui";
+import { Button, DataTable, Badge } from "@audere-apps/ui";
 import { Users, ClipboardList, Clock, Plus } from "lucide-react";
 import { cn } from "../../utils/cn";
 

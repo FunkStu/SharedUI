@@ -1,4 +1,4 @@
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 import { ChevronDown, ChevronUp, Trash2, Plus } from "lucide-react";
 import { useState } from "react";
 

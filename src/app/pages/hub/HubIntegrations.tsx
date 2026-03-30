@@ -1,4 +1,4 @@
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 
 const APPS = [
   { id: "home", name: "Home" },

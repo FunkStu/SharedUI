@@ -1,4 +1,4 @@
-import { Button, MetricTile, SharedBarChart } from "@audere/ui";
+import { Button, MetricTile, SharedBarChart } from "@audere-apps/ui";
 import { Card, CardContent } from "../../components/ui/card";
 
 const DISTRIBUTION_DATA = [

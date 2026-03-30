@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router";
-import { Button } from "@audere/ui";
+import { Button } from "@audere-apps/ui";
 import { AppSwitcher } from "../platform/AppSwitcher";
 import { Bell, ArrowLeft } from "lucide-react";
 import { cn } from "../../utils/cn";

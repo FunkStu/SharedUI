@@ -1,4 +1,4 @@
-import { Button, DataTable } from "@audere/ui";
+import { Button, DataTable } from "@audere-apps/ui";
 import { Plus, Download, Pencil, Trash2 } from "lucide-react";
 
 type ClientRow = {

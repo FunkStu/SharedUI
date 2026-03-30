@@ -1,4 +1,4 @@
-import { Button, Badge, Input, Tabs } from "@audere/ui";
+import { Button, Badge, Input, Tabs } from "@audere-apps/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/Card";
 import { Search, Mail, Bell, Settings } from "lucide-react";
 import { useState } from "react";
