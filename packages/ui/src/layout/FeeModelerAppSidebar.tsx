@@ -60,8 +60,14 @@ function ChevronRight({ open }: { open: boolean }) {
 }
 
 /**
- * Fee Modeler application sidebar: accordion sections, primary Home, Settings footer.
- * Routing-agnostic: pass your router `Link` and `navigate`.
+ * Shared **hub** sidebar: brand strip, optional back link, optional `home` rail, accordion
+ * `groups`, optional footer `settings`. Routing-agnostic (`Link`, `navigate`, `pathname`).
+ *
+ * **Default product pattern:** omit **`home`** — put top-level entries in the first accordion
+ * group (e.g. Capture → Audit, Track). Use **`home`** only when a dedicated rail link above
+ * all sections is required (Fee Modeler preview uses Home + grouped sections).
+ *
+ * @see `docs/HUB_SIDEBAR_AND_NAV.md` in the Shared UI repo for design decisions.
  */
 export function FeeModelerAppSidebar({
   pathname,

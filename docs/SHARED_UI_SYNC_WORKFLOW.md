@@ -59,3 +59,5 @@ Note: only map components that exist in both the source package and target app a
 3. Run drift check (`--check`) before merge.
 4. Build/lint target repo(s).
 5. Commit changes in both repos.
+
+Hub sidebar behaviour and defaults (optional `home` rail, tokens, Tailwind): [`HUB_SIDEBAR_AND_NAV.md`](./HUB_SIDEBAR_AND_NAV.md).

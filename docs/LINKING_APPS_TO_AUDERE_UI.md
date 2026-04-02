@@ -72,7 +72,7 @@ That runs `npm publish ./packages/ui --access public --registry=https://registry
 In the app’s `package.json`:
 
 ```json
-"@audere/ui": "^0.3.3"
+"@audere/ui": "^0.3.4"
 ```
 
 Use the **lowest version that includes the APIs you need**; caret `^` is typical.
@@ -179,10 +179,12 @@ In the app (temporary):
 - [ ] Leave **product-only** components local; document them in the app’s README if needed.
 - [ ] Run **`tsc`** and **`npm run build`**; fix types and missing imports.
 - [ ] If the app uses **Lovable** or remote CI, push and confirm **remote build** (no private registry for `@audere/ui`).
+- [ ] If using **`FeeModelerAppSidebar`**, follow **[`HUB_SIDEBAR_AND_NAV.md`](./HUB_SIDEBAR_AND_NAV.md)** (Tailwind `content`, default **no `home` rail** unless the product needs it).
 
 ---
 
 ## Related docs
 
+- [`HUB_SIDEBAR_AND_NAV.md`](./HUB_SIDEBAR_AND_NAV.md) — **hub accordion sidebar** defaults (no `home` rail by default, optional `settings`, tokens, Tailwind).
 - [`SHARED_UI_SYNC_WORKFLOW.md`](./SHARED_UI_SYNC_WORKFLOW.md) — file-based sync into specific repos.
 - Role Audit — [`PUBLISHING_AUDERE_UI.md`](https://github.com/FunkStu/Role-Audit/blob/main/docs/PUBLISHING_AUDERE_UI.md) (app-centric notes; points here for the full method).

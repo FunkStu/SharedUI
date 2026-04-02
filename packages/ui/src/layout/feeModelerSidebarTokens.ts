@@ -1,6 +1,8 @@
 /**
- * Locked Fee Modeler app sidebar visual tokens (preview shell).
- * Section labels are compact uppercase; submenu rows match live app spacing/icons.
+ * Visual tokens for **`FeeModelerAppSidebar`** (Audere hub rail — Role Audit, Fee Modeler, etc.).
+ * Slate/chrome palette is intentional; not shadcn `sidebar` semantic colors.
+ *
+ * @see `docs/HUB_SIDEBAR_AND_NAV.md` in the Shared UI repo.
  */
 export const feeModelerSidebarTokens = {
   shell: "fixed inset-y-0 z-40 flex w-64 shrink-0 flex-col bg-slate-800 text-white",
