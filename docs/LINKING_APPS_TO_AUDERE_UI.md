@@ -102,6 +102,19 @@ Patterns that work well:
 
 Remove any **legacy** “redirect `react-router` → `react-router-dom` only for `@audere/ui`” plugin once you are on **`@audere/ui@0.3.3+`**.
 
+### 3b. Tailwind CSS
+
+`@audere/ui` encodes layout and shell styles as **Tailwind utility class strings** inside its **published `dist/*.js` files**. Your `tailwind.config` **`content`** array must include those files, otherwise classes such as **`bg-slate-800`** are never generated and shells look wrong (e.g. light sidebar with unreadable contrast).
+
+```ts
+content: [
+  "./src/**/*.{ts,tsx}",
+  "./node_modules/@audere/ui/dist/**/*.js",
+],
+```
+
+If you use **pnpm** with a hoisted layout, adjust the path (e.g. search for `@audere/ui` under `node_modules`). Monorepos that already point **`content`** at **`Shared UI/packages/ui/src`** pick up the same classes from source instead.
+
 ### 4. Imports
 
 Prefer the **main barrel** when possible:
