@@ -185,6 +185,6 @@ In the app (temporary):
 
 ## Related docs
 
-- [`HUB_SIDEBAR_AND_NAV.md`](./HUB_SIDEBAR_AND_NAV.md) — **hub accordion sidebar** defaults (no `home` rail by default, optional `settings`, tokens, Tailwind).
+- [`HUB_SIDEBAR_AND_NAV.md`](./HUB_SIDEBAR_AND_NAV.md) — **hub accordion sidebar** + **classic horizontal** shell (`audereShell`, `Surface`, `Button`, Tailwind).
 - [`SHARED_UI_SYNC_WORKFLOW.md`](./SHARED_UI_SYNC_WORKFLOW.md) — file-based sync into specific repos.
 - Role Audit — [`PUBLISHING_AUDERE_UI.md`](https://github.com/FunkStu/Role-Audit/blob/main/docs/PUBLISHING_AUDERE_UI.md) (app-centric notes; points here for the full method).

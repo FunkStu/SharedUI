@@ -1,7 +1,9 @@
-# Hub sidebar & navigation (`FeeModelerAppSidebar`)
+# Shell & navigation (hub rail + classic horizontal)
 
-Canonical design rules for the **shared hub rail** used by Audere apps (Role Audit new UI, Fee Modeler preview, future products).  
-**Implementation:** `packages/ui/src/layout/FeeModelerAppSidebar.tsx` + `feeModelerSidebarTokens.ts` — published as **`@audere/ui`**.
+Canonical design rules for **hub sidebars** and the **classic horizontal** header layout used by Audere apps.
+
+- **Hub rail:** `packages/ui/src/layout/FeeModelerAppSidebar.tsx` + `feeModelerSidebarTokens.ts` — **`@audere/ui`** (Role Audit new UI, Fee Modeler preview).
+- **Classic horizontal:** Role Audit **`/classic/*`** — `Layout.tsx` uses the same **`audereShell.pageRootClass`** canvas and **`Surface`** + **`Button`** / **`buttonVariants`** from **`@audere/ui`** (no duplicate shell primitives).
 
 This file is the **living reference** for nav/shell decisions. Extend it whenever we change behaviour or add apps.
 
@@ -35,6 +37,14 @@ This file is the **living reference** for nav/shell decisions. Extend it wheneve
 ## Routing
 
 - Component is **router-agnostic**: pass **`Link`**, **`navigate`**, and **`pathname`** from the app (`react-router-dom` or equivalent).
+
+## Classic horizontal shell (Role Audit `/classic/*`)
+
+- **Page canvas:** **`audereShell.pageRootClass`** from **`@audere/ui/layout`** (`bg-muted/30`, typography base) so classic and new UI sit on the same shell background family.
+- **Header + main:** two **`Surface`** regions (`shadow-sm`, theme `border` / `card`) instead of ad hoc `shadow-[var(--shadow-card)]` on raw `div`s.
+- **Toolbar actions:** **`Button`** (`outline` + `primary/10` tints) for New UI, Files, Help, Logout — no hard-coded hex blues.
+- **Nav pills:** **`buttonVariants({ variant: "outline" })`** as a base; **active** capture/analyse/redesign use **`primary`** (`bg-primary`, `border-primary`). **Team** / **Admin** keep app **semantic colours** (`nav-org`, `nav`) from the host Tailwind theme.
+- **Dropdown:** remain host **shadcn** `DropdownMenu` + `Link` where needed; only chrome is shared-ui aligned.
 
 ## Related
 
