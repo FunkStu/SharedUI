@@ -21,8 +21,16 @@ export const feeModelerSidebarTokens = {
     "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium leading-snug transition-colors",
   nestedLinkInactive: "text-slate-300/90 hover:bg-slate-700 hover:text-white",
   nestedLinkActive: "bg-teal-600 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]",
+  /**
+   * Submenu stack under a section header: left hierarchy rail + indent (hub sidebars).
+   */
+  nestedList: "mt-0.5 space-y-0.5 border-l border-slate-600/55 ml-3 pl-3",
   nestedIcon: "h-4 w-4 shrink-0 opacity-90",
   primaryIcon: "h-4 w-4 shrink-0",
   sectionChevron: "h-3.5 w-3.5 shrink-0 transition-transform",
   footerRegion: "shrink-0 border-t border-slate-700 p-3 pt-2",
+  groupDivider: "mx-3 my-2 border-t border-slate-600/70",
 } as const;
+
+/** Alias for accordion submenu stack classes (hub preview sidebars). */
+export const previewSidebarSubmenuStack = feeModelerSidebarTokens.nestedList;

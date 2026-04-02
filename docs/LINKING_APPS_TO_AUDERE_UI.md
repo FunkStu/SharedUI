@@ -61,6 +61,8 @@ That runs `npm publish ./packages/ui --access public --registry=https://registry
 3. `npm run publish:audere-ui` from monorepo root (with auth; browser OTP if prompted).
 4. In each consuming app, bump **`"@audere/ui"`** and reinstall (see Part B).
 
+**Order matters:** apps that import **new** APIs must not merge/deploy until that version exists on the registry. If CI fails with “No matching version”, publish `@audere/ui` first (or temporarily `npm pack` + install the `.tgz` locally to confirm the tarball before publishing).
+
 ---
 
 ## Part B — Apps: add or upgrade `@audere/ui`

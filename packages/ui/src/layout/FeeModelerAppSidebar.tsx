@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from "react";
+import { Fragment, type ComponentType, type ReactNode } from "react";
 import { cn } from "../lib/utils";
 import { feeModelerSidebarTokens as t } from "./feeModelerSidebarTokens";
 
@@ -12,6 +12,8 @@ export type FeeModelerNavGroup = {
   id: string;
   label: string;
   items: FeeModelerNavItem[];
+  /** When true, render a separator above this group (e.g. before org-level nav). */
+  dividerBefore?: boolean;
 };
 
 export type FeeModelerSidebarLinkProps = {
@@ -27,8 +29,10 @@ export type FeeModelerAppSidebarProps = {
   Link: ComponentType<FeeModelerSidebarLinkProps>;
   /** Logo row, optional badge, etc. */
   branding: ReactNode;
-  home: FeeModelerNavItem;
-  settings: FeeModelerNavItem;
+  /** Primary rail link below back link; omit when all entry routes live in accordion groups. */
+  home?: FeeModelerNavItem;
+  /** Footer rail link (e.g. Settings / Admin); omit if not used. */
+  settings?: FeeModelerNavItem;
   groups: FeeModelerNavGroup[];
   isGroupVisible?: (group: FeeModelerNavGroup) => boolean;
   backLink?: { to: string; label: string };
@@ -74,8 +78,8 @@ export function FeeModelerAppSidebar({
   belowSettings,
 }: FeeModelerAppSidebarProps) {
   const visibleGroups = isGroupVisible ? groups.filter(isGroupVisible) : groups;
-  const HomeIcon = home.icon;
-  const SettingsIcon = settings.icon;
+  const HomeIcon = home?.icon;
+  const SettingsIcon = settings?.icon;
 
   return (
     <aside className={t.shell}>
@@ -101,69 +105,78 @@ export function FeeModelerAppSidebar({
             </Link>
           ) : null}
 
-          <Link
-            to={home.path}
-            className={cn(
-              t.primaryRailLink,
-              pathname === home.path ? t.primaryRailLinkActive : t.primaryRailLinkInactive,
-            )}
-          >
-            <HomeIcon className={t.primaryIcon} />
-            {home.label}
-          </Link>
+          {home && HomeIcon ? (
+            <Link
+              to={home.path}
+              className={cn(
+                t.primaryRailLink,
+                pathname === home.path ? t.primaryRailLinkActive : t.primaryRailLinkInactive,
+              )}
+            >
+              <HomeIcon className={t.primaryIcon} />
+              {home.label}
+            </Link>
+          ) : null}
 
           {visibleGroups.map((group) => {
             const isOpen = openGroupId === group.id;
             return (
-              <div key={group.id} className="mt-1">
-                <button
-                  type="button"
-                  className={t.sectionTrigger}
-                  onClick={() => onOpenGroupChange(isOpen ? null : group.id)}
-                >
-                  <span>{group.label}</span>
-                  <ChevronRight open={isOpen} />
-                </button>
+              <Fragment key={group.id}>
+                {group.dividerBefore ? <div className={t.groupDivider} role="separator" /> : null}
+                <div className="mt-1">
+                  <button
+                    type="button"
+                    className={t.sectionTrigger}
+                    onClick={() => onOpenGroupChange(isOpen ? null : group.id)}
+                  >
+                    <span>{group.label}</span>
+                    <ChevronRight open={isOpen} />
+                  </button>
 
-                {isOpen && (
-                  <div className="space-y-0.5">
-                    {group.items.map((item) => {
-                      const isActive = pathname === item.path;
-                      const Icon = item.icon;
-                      return (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          className={cn(
-                            t.nestedLink,
-                            isActive ? t.nestedLinkActive : t.nestedLinkInactive,
-                          )}
-                        >
-                          <Icon className={t.nestedIcon} />
-                          {item.label}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
+                  {isOpen && (
+                    <div className={t.nestedList}>
+                      {group.items.map((item) => {
+                        const isActive = pathname === item.path;
+                        const Icon = item.icon;
+                        return (
+                          <Link
+                            key={item.path}
+                            to={item.path}
+                            className={cn(
+                              t.nestedLink,
+                              isActive ? t.nestedLinkActive : t.nestedLinkInactive,
+                            )}
+                          >
+                            <Icon className={t.nestedIcon} />
+                            {item.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </Fragment>
             );
           })}
         </div>
 
-        <div className={t.footerRegion}>
-          <Link
-            to={settings.path}
-            className={cn(
-              t.primaryRailLink,
-              pathname === settings.path ? t.primaryRailLinkActive : t.primaryRailLinkInactive,
-            )}
-          >
-            <SettingsIcon className={t.primaryIcon} />
-            {settings.label}
-          </Link>
-          {belowSettings ?? null}
-        </div>
+        {settings || belowSettings ? (
+          <div className={t.footerRegion}>
+            {settings && SettingsIcon ? (
+              <Link
+                to={settings.path}
+                className={cn(
+                  t.primaryRailLink,
+                  pathname === settings.path ? t.primaryRailLinkActive : t.primaryRailLinkInactive,
+                )}
+              >
+                <SettingsIcon className={t.primaryIcon} />
+                {settings.label}
+              </Link>
+            ) : null}
+            {belowSettings ?? null}
+          </div>
+        ) : null}
       </nav>
     </aside>
   );

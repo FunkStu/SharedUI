@@ -1,6 +1,9 @@
 export * from "./AppLayout";
 export { audereShell } from "./constants";
-export { feeModelerSidebarTokens } from "./feeModelerSidebarTokens";
+export {
+  feeModelerSidebarTokens,
+  previewSidebarSubmenuStack,
+} from "./feeModelerSidebarTokens";
 export {
   FeeModelerAppSidebar,
   type FeeModelerAppSidebarProps,
