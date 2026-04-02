@@ -24,6 +24,8 @@ export default defineConfig({
   external: [
     "react",
     "react-dom",
+    "react-router-dom",
+    "lucide-react",
     "@radix-ui/react-slot",
     "@radix-ui/react-tabs",
     "@radix-ui/react-select",

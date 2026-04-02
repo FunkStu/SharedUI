@@ -1,1 +1,1 @@
-export { PlatformSidebarMode as SidebarNavigation } from "@/app/components/platform/PlatformSidebarMode";
+export { PlatformSidebarMode as SidebarNavigation } from "../../../../src/app/components/platform/PlatformSidebarMode";

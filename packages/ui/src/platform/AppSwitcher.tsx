@@ -1,1 +1,1 @@
-export { AppSwitcher } from "@/app/components/platform/AppSwitcher";
+export { AppSwitcher } from "../../../../src/app/components/platform/AppSwitcher";

@@ -1,1 +1,1 @@
-export { WorkspaceSelector } from "@/app/components/platform/WorkspaceSelector";
+export { WorkspaceSelector } from "../../../../src/app/components/platform/WorkspaceSelector";

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { PLATFORM_APPS, getCurrentApp } from "../../config/apps";
 import { cn } from "../../utils/cn";

@@ -1,1 +1,1 @@
-export { TopNavigation } from "@/app/components/platform/TopNavigation";
+export { TopNavigation } from "../../../../src/app/components/platform/TopNavigation";
