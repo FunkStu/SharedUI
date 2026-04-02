@@ -1,0 +1,61 @@
+# Publishes packages/ui to GitHub Packages as @audere-apps/ui (default).
+# Bump version in packages/ui/package.json first, then either:
+#   - Actions → "Publish UI to GitHub Packages" → Run workflow, or
+#   - git tag ui/v0.3.5 && git push origin ui/v0.3.5
+#
+# Auth: GITHUB_TOKEN works when the package scope matches the repo owner (e.g. repo
+# github.com/audere-apps/SharedUI). If the scope differs (e.g. @audere-apps on FunkStu/repo),
+# add repository secret GPR_PUBLISH_TOKEN (classic PAT: write:packages, read:packages).
+
+name: Publish UI to GitHub Packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run npm publish --dry-run only"
+        type: boolean
+        default: false
+  push:
+    tags:
+      - "ui/v*"
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: publish-ui-gpr-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/ui
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@audere-apps"
+          cache: "npm"
+          cache-dependency-path: packages/ui/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Publish to GitHub Packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GPR_PUBLISH_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          DRY=""
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY="--dry-run"
+          fi
+          node scripts/publish-github-packages.mjs $DRY
