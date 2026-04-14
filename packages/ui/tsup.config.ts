@@ -31,6 +31,7 @@ export default defineConfig({
     "@radix-ui/react-select",
     "@radix-ui/react-checkbox",
     "@radix-ui/react-label",
+    "@radix-ui/react-slider",
     "lucide-react",
     "class-variance-authority",
     "clsx",

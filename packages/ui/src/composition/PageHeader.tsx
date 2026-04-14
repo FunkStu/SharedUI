@@ -23,11 +23,10 @@ export function PageHeader({
       )}
     >
       <div className="min-w-0 space-y-1">
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-          {title}
-        </h1>
+        {/* Aligned with hub.audere.com.au app welcome headings (2xl bold + base muted). */}
+        <h1 className="text-2xl font-bold text-foreground">{title}</h1>
         {description ? (
-          <p className="text-lg text-muted-foreground">{description}</p>
+          <p className="text-muted-foreground">{description}</p>
         ) : null}
       </div>
       {actions ? (

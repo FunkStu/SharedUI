@@ -3,6 +3,7 @@ export { Input } from "./input";
 export { Badge, badgeVariants } from "./badge";
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
 export { Label } from "./label";
+export { Slider } from "./slider";
 export { Checkbox } from "./checkbox";
 export {
   Table,

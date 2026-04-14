@@ -50,7 +50,6 @@ import { Deliverables } from "./pages/feemodeler/Deliverables";
 import { OneToMany } from "./pages/feemodeler/OneToMany";
 import { Advice } from "./pages/feemodeler/Advice";
 import { Packages } from "./pages/feemodeler/Packages";
-import { CostedSchedule } from "./pages/feemodeler/CostedSchedule";
 import { ClientPricing } from "./pages/feemodeler/ClientPricing";
 import { LongTailAnalysis } from "./pages/feemodeler/LongTailAnalysis";
 import { FeeModelerSettings } from "./pages/feemodeler/FeeModelerSettings";
@@ -147,7 +146,7 @@ export const router = createBrowserRouter([
       { path: "one-to-many", Component: OneToMany },
       { path: "advice", Component: Advice },
       { path: "packages", Component: Packages },
-      { path: "costed-schedule", Component: CostedSchedule },
+      { path: "costed-schedule", element: <Navigate to="/feemodeler/client-pricing" replace /> },
       { path: "client-pricing", Component: ClientPricing },
       { path: "analysis", Component: LongTailAnalysis },
       { path: "settings", Component: FeeModelerSettings },

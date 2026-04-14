@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
-import { Button } from "@audere-apps/ui";
+import { Button } from "@audere/ui";
 import {
   FeeModelerAppSidebar,
   type FeeModelerNavGroup,
-} from "@audere-apps/ui/layout";
+} from "@audere/ui/layout";
 import { AppSwitcher } from "../platform/AppSwitcher";
 import {
   Home,
@@ -39,10 +39,7 @@ const FEEMODELER_GROUPS: FeeModelerNavGroup[] = [
   {
     id: "pricing",
     label: "PRICING",
-    items: [
-      { path: "/feemodeler/costed-schedule", label: "Costed Fee Schedule", icon: DollarSign },
-      { path: "/feemodeler/client-pricing", label: "Client Pricing", icon: DollarSign },
-    ],
+    items: [{ path: "/feemodeler/client-pricing", label: "Client Pricing", icon: DollarSign }],
   },
   {
     id: "analysis",
@@ -79,6 +76,7 @@ export function FeeModelerLayout() {
           </div>
         }
         home={HOME}
+        homePresentation="feeModelerPreview"
         settings={SETTINGS}
         groups={FEEMODELER_GROUPS}
         backLink={{ to: "/hub", label: "Back to Dashboard" }}

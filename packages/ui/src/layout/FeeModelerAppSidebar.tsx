@@ -40,6 +40,11 @@ export type FeeModelerAppSidebarProps = {
   onOpenGroupChange: (id: string | null) => void;
   /** Optional block below the Settings link (e.g. user / org line) */
   belowSettings?: ReactNode;
+  /**
+   * How to render optional `home`: default **`rail`** (primary rail, hub-style); **`feeModelerPreview`**
+   * matches accordion header row styling for the Fee Modeler preview shell.
+   */
+  homePresentation?: "rail" | "feeModelerPreview";
 };
 
 function ChevronRight({ open }: { open: boolean }) {
@@ -64,8 +69,9 @@ function ChevronRight({ open }: { open: boolean }) {
  * `groups`, optional footer `settings`. Routing-agnostic (`Link`, `navigate`, `pathname`).
  *
  * **Default product pattern:** omit **`home`** — put top-level entries in the first accordion
- * group (e.g. Capture → Audit, Track). Use **`home`** only when a dedicated rail link above
- * all sections is required (Fee Modeler preview uses Home + grouped sections).
+ * group (e.g. Capture → Audit, Track). Use **`home`** only when a dedicated entry above
+ * sections is required; use **`homePresentation="feeModelerPreview"`** for the Fee Modeler
+ * preview (Home row aligned to section headers).
  *
  * @see `docs/HUB_SIDEBAR_AND_NAV.md` in the Shared UI repo for design decisions.
  */
@@ -82,6 +88,7 @@ export function FeeModelerAppSidebar({
   openGroupId,
   onOpenGroupChange,
   belowSettings,
+  homePresentation = "rail",
 }: FeeModelerAppSidebarProps) {
   const visibleGroups = isGroupVisible ? groups.filter(isGroupVisible) : groups;
   const HomeIcon = home?.icon;
@@ -112,16 +119,40 @@ export function FeeModelerAppSidebar({
           ) : null}
 
           {home && HomeIcon ? (
-            <Link
-              to={home.path}
-              className={cn(
-                t.primaryRailLink,
-                pathname === home.path ? t.primaryRailLinkActive : t.primaryRailLinkInactive,
-              )}
-            >
-              <HomeIcon className={t.primaryIcon} />
-              {home.label}
-            </Link>
+            homePresentation === "feeModelerPreview" ? (
+              <div className="mt-1">
+                <Link
+                  to={home.path}
+                  className={cn(
+                    t.sectionTrigger,
+                    pathname === home.path &&
+                      "bg-teal-600 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] hover:bg-teal-600 hover:text-white",
+                  )}
+                >
+                  <span className="inline-flex min-w-0 items-center gap-2">
+                    <HomeIcon
+                      className={cn(
+                        "h-3.5 w-3.5 shrink-0",
+                        pathname === home.path ? "text-white" : "text-slate-400",
+                      )}
+                    />
+                    <span className="truncate">{home.label}</span>
+                  </span>
+                  <span className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                </Link>
+              </div>
+            ) : (
+              <Link
+                to={home.path}
+                className={cn(
+                  t.primaryRailLink,
+                  pathname === home.path ? t.primaryRailLinkActive : t.primaryRailLinkInactive,
+                )}
+              >
+                <HomeIcon className={t.primaryIcon} />
+                {home.label}
+              </Link>
+            )
           ) : null}
 
           {visibleGroups.map((group) => {
