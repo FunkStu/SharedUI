@@ -18,7 +18,7 @@ export function AppLayout({ sidebar, header, children }: AppLayoutProps) {
         <div className={audereShell.headerStripClass}>{header}</div>
         <div
           className={cn(
-            "mx-auto flex flex-1",
+            "mx-auto flex w-full flex-1 flex-col",
             audereShell.contentMaxWidthClass,
             audereShell.contentPaddingClass,
           )}
