@@ -82,6 +82,7 @@ jobs:
           scope: "@audere-apps"
 
       - name: Publish @audere-apps/ui to GitHub Packages
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GPR_PUBLISH_TOKEN || secrets.GITHUB_TOKEN }}
           SKIP_BUILD: "1"
