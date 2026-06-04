@@ -45,7 +45,11 @@ function main() {
 
   try {
     console.log("[publish-github-packages] Building…");
-    execSync("npm run build", { cwd: uiRoot, stdio: "inherit" });
+    if (process.env.SKIP_BUILD !== "1") {
+      execSync("npm run build", { cwd: uiRoot, stdio: "inherit" });
+    } else {
+      console.log("[publish-github-packages] SKIP_BUILD=1 — using existing dist/");
+    }
 
     const outPkg = {
       ...pkg,
