@@ -1,5 +1,6 @@
-# Publishes packages/ui to GitHub Packages as @audere-apps/ui (default).
-# Also publishes @audere/ui to the public npm registry when NPM_TOKEN is set.
+# Primary path: publish @audere/ui to public npm (NPM_TOKEN).
+# Legacy optional step: @audere-apps/ui on GitHub Packages (non-blocking; often fails on auth).
+# New apps and Lovable should use npm only — see docs/LINKING_APPS_TO_AUDERE_UI.md.
 #
 # Bump version in packages/ui/package.json first, then either:
 #   - Actions → "Publish UI to GitHub Packages" → Run workflow, or

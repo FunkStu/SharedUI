@@ -6,11 +6,24 @@ This is the **repeatable playbook** for connecting a product app (Vite/React, Lo
 
 | Mechanism | Use when |
 |-----------|----------|
-| **`@audere/ui` on npm** | Normal installs, CI, Lovable, production. **This is the default.** |
+| **`@audere/ui` on npm** | Normal installs, CI, Lovable, production. **This is the only supported path for new work.** |
 | **`npm link` / `file:`** | Short-lived local iteration against Shared UI without publishing. |
 | **`tools/sync-shared-ui.mjs`** | Selective **file copies** into a repo (see [`SHARED_UI_SYNC_WORKFLOW.md`](./SHARED_UI_SYNC_WORKFLOW.md)) when you intentionally duplicate specific sources instead of consuming the package. |
+| **GitHub Packages (`@audere-apps/ui`)** | **Legacy / not recommended.** Do not use for Connect, Home, Lovable, or new apps. |
 
-Most apps should **depend on the npm package** and only use sync or `link` when you have a concrete reason.
+Most apps should **depend on the public npm package** and only use sync or `link` when you have a concrete reason.
+
+### Why not GitHub Packages?
+
+We originally tried publishing as **`@audere-apps/ui`** on **`npm.pkg.github.com`** because the **`@audere`** scope was already taken on public npm. That path proved unreliable in practice:
+
+- **Lovable and CI** need extra `NODE_AUTH_TOKEN` / `.npmrc` wiring for GitHub Packages; public npm needs none for `@audere/ui`.
+- **Publish auth** for GitHub Packages often fails in Actions (`GPR_PUBLISH_TOKEN` missing or insufficient).
+- **Two registries** (npm + GitHub Packages) created confusion about which package name apps should import.
+
+**Standard today:** publish and consume **`@audere/ui`** from **`https://registry.npmjs.org`** only. The optional GitHub Packages step in `.github/workflows/publish-ui-github-packages.yml` is kept for historical Role Audit compatibility but is **non-blocking** and may fail without affecting npm publish.
+
+If an older doc or app still references `@audere-apps/ui` + GitHub Packages, treat it as **deprecated** and migrate to `@audere/ui` on npm.
 
 ---
 
