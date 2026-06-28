@@ -30,16 +30,7 @@ node tools/sync-shared-ui.mjs --all --check
 
 ## Current target coverage
 
-Configured in `tools/shared-ui-sync.config.json`:
-
-- `Fee-Modeler`
-  - `packages/ui/src/layout/FeeModelerAppSidebar.tsx` -> `src/components/preview-shell/FeeModelerAppSidebar.tsx`
-  - `packages/ui/src/layout/feeModelerSidebarTokens.ts` -> `src/components/preview-shell/feeModelerSidebarTokens.ts` (includes **`previewSidebarSubmenuStack`** — canonical submenu left-rail wrapper; keep in sync)
-  - `packages/ui/src/surface/Surface.tsx` -> `src/components/preview-shell/Surface.tsx`
-  - `packages/ui/src/composition/Section.tsx` -> `src/components/preview-shell/Section.tsx`
-  - `packages/ui/src/composition/PageHeader.tsx` -> `src/components/preview-shell/PageHeader.tsx`
-  - `packages/ui/src/composition/Toolbar.tsx` -> `src/components/preview-shell/Toolbar.tsx`
-  - `packages/ui/src/data/MetricTile.tsx` -> `src/components/preview-shell/MetricTile.tsx`
+Configured in `tools/shared-ui-sync.config.json`. **No active targets** — Fee-Modeler (Jun 2026) now imports all shared chrome from **`@audere/ui`** via its vendored tarball; Role Audit uses public npm. Add a target here only when a product repo intentionally duplicates specific sources instead of consuming the package.
 
 ## Add a new product repo
 
@@ -82,4 +73,4 @@ Fee-Modeler can pin **`@audere/ui`** to **`file:./vendor/audere-ui-<version>.tgz
 
 - **Charts** (`@audere/ui/charts`, etc.) come from the package **`dist/`** — always **`npm run build`** in `packages/ui` before pack or publish.
 - **Tailwind** in Fee-Modeler should content-scan `node_modules/@audere/ui/dist/**/*`.
-- **Copied preview-shell files** (sidebar, `PageHeader`, etc.) still use **`sync-shared-ui.mjs`**; package imports use `@audere/ui/...`.
+- **Package imports** use `@audere/ui/...` subpaths (layout, composition, surface, etc.) — no local `preview-shell` copies after phase 2 (Jun 2026).
