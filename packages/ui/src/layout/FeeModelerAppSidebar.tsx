@@ -6,6 +6,11 @@ export type FeeModelerNavItem = {
   path: string;
   label: string;
   icon: ComponentType<{ className?: string }>;
+  /**
+   * How `pathname` marks this item active. Default **`exact`** (`pathname === path`).
+   * **`prefix`** also matches sub-routes (`/calendar/replay/x` for `/calendar`).
+   */
+  match?: "exact" | "prefix";
 };
 
 export type FeeModelerNavGroup = {
@@ -14,7 +19,21 @@ export type FeeModelerNavGroup = {
   items: FeeModelerNavItem[];
   /** When true, render a separator above this group (e.g. before org-level nav). */
   dividerBefore?: boolean;
+  /**
+   * Default **`accordion`**: a section header that opens and closes its items.
+   * **`flat`**: no header; items render as always-visible primary rail links, like `home`.
+   * `label` still names the group for screen readers.
+   */
+  presentation?: "accordion" | "flat";
 };
+
+/** Whether `pathname` (path only, no query) selects `item`. */
+export function isFeeModelerNavItemActive(item: FeeModelerNavItem, pathname: string): boolean {
+  if (pathname === item.path) return true;
+  if (item.match !== "prefix") return false;
+  const base = item.path.replace(/\/+$/, "");
+  return base !== "" && pathname.startsWith(`${base}/`);
+}
 
 export type FeeModelerSidebarLinkProps = {
   to: string;
@@ -157,6 +176,33 @@ export function FeeModelerAppSidebar({
 
           {visibleGroups.map((group) => {
             const isOpen = openGroupId === group.id;
+            if (group.presentation === "flat") {
+              return (
+                <Fragment key={group.id}>
+                  {group.dividerBefore ? <div className={t.groupDivider} role="separator" /> : null}
+                  <div role="group" aria-label={group.label} className="mt-1 space-y-0.5">
+                    {group.items.map((item) => {
+                      const isActive = isFeeModelerNavItemActive(item, pathname);
+                      const Icon = item.icon;
+                      return (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          aria-current={isActive ? "page" : undefined}
+                          className={cn(
+                            t.primaryRailLink,
+                            isActive ? t.primaryRailLinkActive : t.primaryRailLinkInactive,
+                          )}
+                        >
+                          <Icon className={t.primaryIcon} />
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </Fragment>
+              );
+            }
             return (
               <Fragment key={group.id}>
                 {group.dividerBefore ? <div className={t.groupDivider} role="separator" /> : null}
@@ -173,7 +219,7 @@ export function FeeModelerAppSidebar({
                   {isOpen && (
                     <div className={t.nestedList}>
                       {group.items.map((item) => {
-                        const isActive = pathname === item.path;
+                        const isActive = isFeeModelerNavItemActive(item, pathname);
                         const Icon = item.icon;
                         return (
                           <Link
