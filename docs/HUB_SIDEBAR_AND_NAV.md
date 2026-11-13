@@ -24,6 +24,8 @@ This file is the **living reference** for nav/shell decisions. Extend it wheneve
 
 - **`FeeModelerNavGroup`**: `id`, `label`, `items[]`, optional **`dividerBefore`** (e.g. separator before **Team** / org-level nav).
 - Accordion children use **`nestedList`** token (left rail + indent) for hierarchy.
+- **`presentation: "flat"`** (0.3.8+): the group has no header and its items render as always-visible **primary rail links** (same styling as `home`). Use it when an app has a few top-level destinations and grouping them would add a click (Connect: Overview, Plan, Progress, Actions, Library, Calendar). `label` becomes the group's `aria-label`. Flat and accordion groups can be mixed; `openGroupId` ignores flat groups.
+- **Item `match: "prefix"`** (0.3.8+): the item stays active on sub-routes (`/calendar/replay/x` for `/calendar`). Default `exact` keeps the original `pathname === path` rule. `isFeeModelerNavItemActive(item, pathname)` is exported for apps that need the same rule.
 
 ## Visual tokens (`feeModelerSidebarTokens`)
 

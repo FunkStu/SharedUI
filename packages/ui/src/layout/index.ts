@@ -6,6 +6,7 @@ export {
 } from "./feeModelerSidebarTokens";
 export {
   FeeModelerAppSidebar,
+  isFeeModelerNavItemActive,
   type FeeModelerAppSidebarProps,
   type FeeModelerNavGroup,
   type FeeModelerNavItem,
